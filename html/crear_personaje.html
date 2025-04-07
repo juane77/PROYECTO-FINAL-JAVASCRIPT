@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Personaje</title>
+    <link rel="stylesheet" href="../css/crear_personaje.css">
+</head>
+<body>
+    <div class="titulo">
+        <h1 class="juego-titulo">Crear Personaje</h1>
+    </div>
+
+    <div class="cajon">
+        <div class="apariencia-option">
+            <img src="../imagenes/ninja.jpg" alt="Ninja">
+        </div>
+        <div class="apariencia-option">
+            <img src="../imagenes/batman.jpg" alt="Batman">
+        </div>
+    </div>
+
+    <div class="contenedor">
+        <form id="formulario-personaje">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="apariencia">Apariencia:</label>
+            <select id="apariencia" name="apariencia">
+                <option value="ninja">Ninja</option>
+                <option value="batman">Batman</option>
+                <option value="alien">Alien</option>
+                <option value="harley">Harley</option>
+            </select>
+
+            <label for="estadisticas">Estadísticas (10 puntos disponibles):</label>
+            <label for="fuerza">Fuerza:</label>
+            <input type="number" id="fuerza" name="fuerza" min="1" max="10" required>
+
+            <label for="destreza">Destreza:</label>
+            <input type="number" id="destreza" name="destreza" min="1" max="10" required>
+
+            <label for="inteligencia">Inteligencia:</label>
+            <input type="number" id="inteligencia" name="inteligencia" min="1" max="10" required>
+
+            <label for="arma">Arma Básica:</label>
+            <select id="arma" name="arma">
+                <option value="espada">Espada</option>
+                <option value="arco">Arco</option>
+                <option value="hacha">Hacha</option>
+            </select>
+
+            <button type="submit">Crear Personaje</button>
+        </form>
+    </div>
+
+    <div class="cajon">
+        <div class="apariencia-option">
+            <img src="../imagenes/alien.jpg" alt="Alien">
+        </div>
+        <div class="apariencia-option">
+            <img src="../imagenes/harley.jpg" alt="Harley">
+        </div>
+    </div>
+
+    <script src="../js/clases/Inventario.js"></script>
+    <script src="../js/clases/Personaje.js"></script>
+    <script src="../js/clases/Arma.js"></script>
+    <script src="../js/crearPersonajeScript.js"></script>
+</body>
+</html>

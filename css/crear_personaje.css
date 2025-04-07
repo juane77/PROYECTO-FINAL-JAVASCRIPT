@@ -1,0 +1,122 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: #000 url('../imagenes/fondoCreacion.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #ffd700;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-wrap: wrap;
+}
+
+.cajon {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.titulo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    text-align: left;
+}
+
+.juego-titulo {
+    font-size: 2em; /* Aumentado el tamaño de la fuente */
+    text-shadow: 2px 2px 4px #ff4500, -2px -2px 4px #ffd700;
+    letter-spacing: 2px;
+    color: #ffd700;
+    font-family: 'Impact', sans-serif;
+    text-transform: uppercase;
+    border: 2px solid #ffd700;
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.contenedor {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border: 3px solid #ffd700;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 69, 0, 0.8);
+    width: 25%;
+    text-align: center;
+    margin: 20px;
+    position: relative;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+label {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    color: #ffd700;
+    text-align: left;
+    font-family: 'Impact', sans-serif;
+    width: 100%;
+}
+
+input, select {
+    margin-bottom: 10px;
+    padding: 8px;
+    font-size: 0.8em;
+    border: 2px solid #ffd700;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffd700;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 15px;
+    font-size: 1.5em;
+    color: #ffd700;
+    background: linear-gradient(145deg, #ff4500, #ffd700);
+    border: 2px solid #ffd700;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s, transform 0.3s;
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+    font-family: 'Impact', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 0 10px rgba(255, 69, 0, 0.8);
+}
+
+button:hover {
+    background: linear-gradient(145deg, #ffd700, #ff4500);
+    color: #ff4500;
+    transform: scale(1.05);
+}
+
+.apariencia-option {
+    margin: 10px 0;
+    transition: transform 0.3s;
+}
+
+.apariencia-option img {
+    width: 90px;
+    height: 135px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 2px solid #ffd700;
+}
+
+.apariencia-option:hover {
+    transform: scale(1.1);
+}

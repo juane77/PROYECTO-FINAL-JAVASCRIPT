@@ -29,7 +29,7 @@ class Inventario {
             this.armaEquipada = arma;
             console.log(`${arma.nombre} equipada.`);
         } else {
-            console.log(`No tienes ${arma.nombre} en el inventario.`);
+            console.log(`No tienes ${arma ? arma.nombre : "esta arma"} en el inventario.`);
         }
     }
 
@@ -38,4 +38,3 @@ class Inventario {
         console.log("Arma equipada:", this.armaEquipada ? this.armaEquipada.nombre : "Ninguna");
     }
 }
-

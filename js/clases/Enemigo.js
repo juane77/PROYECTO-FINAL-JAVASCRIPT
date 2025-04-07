@@ -2,6 +2,7 @@ class Enemigo {
     constructor(nombre, vida, ataque, defensa, nivel) {
         this.nombre = nombre;
         this.vida = vida;
+        this.vidaMaxima = vida;
         this.ataque = ataque;
         this.defensa = defensa;
         this.nivel = nivel;
@@ -9,11 +10,13 @@ class Enemigo {
     }
 
     atacar() {
-        const dañoTotal = this.inventario.armaEquipada ?
-            this.inventario.armaEquipada.daño + Math.floor(Math.random() * this.nivel) :
-            this.ataque + Math.floor(Math.random() * this.nivel);
-        console.log(`${this.nombre} ataca y causa ${dañoTotal} puntos de daño.`);
-        return dañoTotal;
+        return this.ataque;
+    }
+
+    defender() {
+        this.vida += this.defensa;
+        this.vida = Math.min(this.vida, this.vidaMaxima);
+        console.log(`${this.nombre} se está defendiendo y gana ${this.defensa} puntos de vida.`);
     }
 
     recibirDaño(daño) {
@@ -37,9 +40,3 @@ class Enemigo {
         console.log("================================");
     }
 }
-
-
-
-
-
-

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combate</title>
+    <link rel="stylesheet" href="../css/combate.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="combate-container">
+        <h1 class="combate-titulo">Combate</h1>
+        <div class="combate-info">
+            <div class="personaje-info" id="personaje-info">
+                <img id="personaje-imagen" alt="Tu Personaje">
+                <h2 id="personaje-nombre"></h2>
+                <div id="personaje-vida-barra" class="vida-barra">
+                    <div id="personaje-vida-restante" class="vida-restante"></div>
+                    <div id="personaje-vida-valor" class="vida-valor"></div>
+                </div>
+            </div>
+            <div class="enemigo-info" id="enemigo-info">
+                <img id="enemigo-imagen" src="" alt="Enemigo">
+                <h2 id="enemigo-nombre"></h2>
+                <div id="enemigo-vida-barra" class="vida-barra">
+                    <div id="enemigo-vida-restante" class="vida-restante"></div>
+                    <div id="enemigo-vida-valor" class="vida-valor"></div>
+                </div>
+            </div>
+        </div>
+        <div class="combate-acciones">
+            <button onclick="turnoPersonaje('atacar')">Atacar</button>
+            <button onclick="turnoPersonaje('defender')">Defender</button>
+            <button onclick="turnoPersonaje('usar arma')">Usar Arma</button>
+        </div>
+        <div class="combate-resultado" id="combate-resultado">
+            <!-- Resultados del combate se mostrarán aquí -->
+        </div>
+    </div>
+    <div id="volver-lobby-container" style="display: none;">
+        <button id="volver-lobby">Volver al Lobby</button>
+    </div>
+    <script src="../js/clases/Inventario.js"></script>
+    <script src="../js/clases/Arma.js"></script>
+    <script src="../js/clases/Enemigo.js"></script>
+    <script src="../js/clases/Personaje.js"></script>
+    <script src="../js/clases/Tienda.js"></script>
+    <script src="../js/clases/Combate.js"></script>
+    <script src="../js/utilidades.js"></script>
+</body>
+</html>

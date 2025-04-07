@@ -1,71 +1,69 @@
+document.addEventListener('DOMContentLoaded', function () {
+    const formularioPersonaje = document.getElementById('formulario-personaje');
+    if (formularioPersonaje) {
+        formularioPersonaje.addEventListener('submit', function (event) {
+            event.preventDefault();
 
+            const nombre = document.getElementById('nombre').value;
+            const apariencia = document.getElementById('apariencia').value;
+            const fuerza = parseInt(document.getElementById('fuerza').value);
+            const destreza = parseInt(document.getElementById('destreza').value);
+            const inteligencia = parseInt(document.getElementById('inteligencia').value);
+            const arma = document.getElementById('arma').value;
 
+            const totalEstadisticas = fuerza + destreza + inteligencia;
 
-// Crear instancias de las clases
-const personaje = new Personaje('Héroe', 1, 100, 100, 10, 5);
-const enemigo = new Enemigo('Ogro', 50, 8, 3, 1);
-const tienda = new Tienda();
+            if (totalEstadisticas !== 10) {
+                alert('Debes distribuir exactamente 10 puntos entre las estadísticas.');
+                return;
+            }
 
-// Función principal para ejecutar la prueba
-function probarJuego() {
-    console.log("¡Bienvenido al juego de prueba!");
+            const personaje = new Personaje(nombre, 1, 100, 100, fuerza, destreza, inteligencia, apariencia);
+            const armaSeleccionada = new Arma(arma, 5, 0);
+            personaje.inventario.agregarObjeto(armaSeleccionada);
+            personaje.inventario.equiparArma(armaSeleccionada);
 
-    // Mostrar estado inicial del personaje
-    personaje.mostrarEstado();
-
-    // Interacción con la tienda
-    console.log("\n--- Visita a la Tienda ---");
-    tienda.comprarArma(personaje);
-
-    // Equipar el arma comprada
-    const armaComprada = personaje.inventario.objetos[0];
-    if (armaComprada) {
-        personaje.inventario.equiparArma(armaComprada);
+            personaje.guardarEstado();
+            alert('Personaje creado y guardado correctamente.');
+            window.location.href = 'lobby.html';
+        });
     }
 
-    // Mostrar estado del personaje después de la compra
-    personaje.mostrarEstado();
+    const botonEliminarDatos = document.getElementById('eliminar-datos');
+    if (botonEliminarDatos) {
+        botonEliminarDatos.addEventListener('click', function () {
+            if (confirm('¿Estás seguro de que deseas eliminar todos los datos guardados?')) {
+                localStorage.clear();
+                alert('Datos eliminados correctamente.');
+            }
+        });
+    }
 
-    // Iniciar combate
-    console.log("\n--- Inicio del Combate ---");
-    const combate = new Combate(personaje, enemigo);
-    combate.iniciarCombate();
-}
+    const botonContinuarPartida = document.getElementById('continuar-partida');
+    if (botonContinuarPartida) {
+        botonContinuarPartida.addEventListener('click', function () {
+            const partidaGuardada = localStorage.getItem('ultimaPartida');
+            if (partidaGuardada) {
+                window.location.href = 'lobby.html';
+            } else {
+                alert('No hay ninguna partida guardada para continuar.');
+            }
+        });
+    }
 
-// Ejecutar la prueba
-probarJuego();
-
-
-
-
-
-// Crear una instancia de Personaje
-const personajeOriginal = new Personaje('Héroe', 1, 100, 100, 10, 5);
-
-// Modificar el estado del personaje
-const arma = new Arma('Espada de Hierro', 10, 50);
-personajeOriginal.inventario.agregarObjeto(arma);
-personajeOriginal.inventario.equiparArma(arma);
-personajeOriginal.vida = 80; // Cambiar la vida para probar
-
-// Guardar el estado del personaje en localStorage
-personajeOriginal.guardarEstado();
-console.log("Estado guardado en localStorage.");
-
-// Cargar el estado del personaje desde localStorage
-const personajeCargado = Personaje.cargarEstado();
-
-// Comprobar que el estado cargado es el mismo que el estado guardado
-console.log("Estado cargado:");
-if (personajeCargado) {
-    personajeCargado.mostrarEstado();
-
-    // Verificar que los atributos son iguales
-    console.log("¿Es el mismo nombre?", personajeCargado.nombre === personajeOriginal.nombre);
-    console.log("¿Es la misma vida?", personajeCargado.vida === personajeOriginal.vida);
-    console.log("¿Es el mismo ataque?", personajeCargado.ataque === personajeOriginal.ataque);
-    console.log("¿Es la misma defensa?", personajeCargado.defensa === personajeOriginal.defensa);
-    console.log("¿Es el mismo inventario?", personajeCargado.inventario.objetos.length === personajeOriginal.inventario.objetos.length);
-} else {
-    console.log("No se pudo cargar el estado del personaje.");
-}
+    const botonNuevaPartida = document.querySelector('a[href="crear_personaje.html"]');
+    if (botonNuevaPartida) {
+        botonNuevaPartida.addEventListener('click', function (event) {
+            const partidaGuardada = localStorage.getItem('ultimaPartida');
+            if (partidaGuardada) {
+                event.preventDefault();
+                if (confirm('Ya tienes una partida guardada. ¿Deseas eliminar la partida anterior y comenzar una nueva?')) {
+                    localStorage.removeItem('ultimaPartida');
+                    window.location.href = 'crear_personaje.html';
+                } else {
+                    alert('Por favor, continúa con la partida actual o elimínala primero.');
+                }
+            }
+        });
+    }
+});

@@ -4,7 +4,9 @@ class Tienda {
             new Arma('Puñal', 10, 50),
             new Arma('Katana de fuego', 15, 75),
             new Arma('Hacha de ogro', 20, 100),
-            new Arma('Lanza indú', 25, 125)
+            new Arma('Lanza indú', 25, 125),
+            new Arma('Espada de hielo', 30, 150),
+            new Arma('Arco élfico', 35, 175)
         ];
     }
 
@@ -15,25 +17,26 @@ class Tienda {
         });
     }
 
-    comprarArma(personaje) {
-        this.mostrarInventario();
-        const indiceArma = parseInt(prompt(`${personaje.nombre}, ¿qué arma te gustaría comprar? (introduce el número): `));
+    comprarArma(personaje, indiceArma) {
+        const armaSeleccionada = this.inventario[indiceArma];
 
-        if (isNaN(indiceArma) || indiceArma < 1 || indiceArma > this.inventario.length) {
-            console.log('Índice de arma no válido.');
-            return;
+        if (personaje.inventario.objetos.length >= personaje.inventario.capacidadMaxima) {
+            console.log(personaje.inventario.objetos.length);
+            console.log(personaje.inventario.capacidadMaxima);
+
+            alert("No puedes comprar más armas. El inventario está lleno.");
+            return false;
         }
-
-        const armaSeleccionada = this.inventario[indiceArma - 1];
-
-        if (personaje.dinero >= armaSeleccionada.precio) {
+        else if (personaje.dinero >= armaSeleccionada.precio) {
             personaje.dinero -= armaSeleccionada.precio;
             personaje.inventario.agregarObjeto(armaSeleccionada);
             console.log(`${personaje.nombre} ha comprado ${armaSeleccionada.nombre} por ${armaSeleccionada.precio} monedas.`);
-        } else {
+            return true; // Indica que la compra fue exitosa
+        } 
+        else {
             console.log(`${personaje.nombre} no tiene suficiente dinero para comprar ${armaSeleccionada.nombre}.`);
+            alert('No tienes suficiente dinero para comprar esta arma.');
+            return false; // Indica que la compra no fue exitosa
         }
     }
 }
-
-

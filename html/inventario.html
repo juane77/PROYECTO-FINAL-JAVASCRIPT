@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario</title>
+    <link rel="stylesheet" href="../css/inventario.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="inventario-container">
+        <h1 class="inventario-titulo">Inventario</h1>
+        <div class="inventario-lista-container">
+            <button class="nav-button" id="left-button">&#9664;</button>
+            <div class="inventario-lista" id="inventario-lista">
+                <!-- Las armas se mostrarán aquí -->
+            </div>
+            <button class="nav-button" id="right-button">&#9654;</button>
+        </div>
+        <div class="arma-equipada-container" id="arma-equipada">
+            <!-- La arma equipada se mostrará aquí -->
+        </div>
+        <button class="volver-boton" onclick="window.location.href='lobby.html'">Volver al Lobby</button>
+    </div>
+    <script src="../js/clases/Inventario.js"></script>
+    <script src="../js/clases/Personaje.js"></script>
+    <script src="../js/clases/Arma.js"></script>
+    <script src="../js/inventario.js"></script>
+</body>
+</html>

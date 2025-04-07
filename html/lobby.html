@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lobby</title>
+    <link rel="stylesheet" href="../css/lobby.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="lobby-container">
+        <div class="sidebar">
+            <h1 class="lobby-titulo">Lobby</h1>
+            <div class="opcion" id="tienda" onclick="window.location.href='tienda.html'">Ir a la tienda</div>
+            <div class="opcion" id="inventario" onclick="window.location.href='inventario.html'">Gestionar inventario</div>
+            <div class="opcion" id="combate" onclick="window.location.href='combate.html'">Entrar en combate</div>
+            <div class="opcion" id="volver" onclick="window.location.href='index.html'">Volver</div>
+            <div class="character-stats" id="character-stats">
+                <p>Nombre: <span id="nombre"></span></p>
+                <p>Fuerza: <span id="fuerza"></span></p>
+                <p>Defensa: <span id="destreza"></span></p>
+                <p>Inteligencia: <span id="inteligencia"></span></p>
+            </div>
+        </div>
+        <div class="main-content">
+            <img src="imagenes/alien.jpg" alt="Personaje" class="character-image" id="character-image">
+        </div>
+    </div>
+    <script src="../js/clases/Inventario.js"></script>
+    <script src="../js/clases/Personaje.js"></script>
+    <script src="../js/clases/Arma.js"></script>
+    <script src="../js/clases/Tienda.js"></script>
+    <script src="../js/lobby.js"></script>
+    <script src="../js/clases/Combate.js"></script>
+    <script src="../js/utilidades.js"></script>
+
+
+</body>
+</html>
